@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+def WITH_RX_JAVA = "withRxJava"
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        buildConfigField "boolean", WITH_RX_JAVA, "false"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+            buildConfigField "boolean", WITH_RX_JAVA, "true"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    apt libraries.dagger_compiler
+    testApt libraries.dagger_compiler
+    provided libraries.javax
+
+    compile libraries.rxjava
+    compile libraries.rxjava_android
+    compile libraries.eventbus
+    compile libraries.appcompat
+    compile libraries.dagger
+    testCompile libraries.unit_test
+}
