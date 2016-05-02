@@ -5,7 +5,7 @@ def WITH_RX_JAVA = "withRxJava"
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         buildConfigField "boolean", WITH_RX_JAVA, "false"
@@ -21,8 +21,11 @@ android {
         }
 
         debug{
-            buildConfigField "boolean", WITH_RX_JAVA, "true"
+            buildConfigField "boolean", WITH_RX_JAVA, "false"
         }
+    }
+    testOptions {
+        useLibrary 'org.apache.http.legacy'
     }
 }
 

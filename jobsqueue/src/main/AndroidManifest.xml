@@ -1,10 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.mariusconstantin.jobsqueue">
+          package="org.mariusconstantin.jobsqueue">
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
-        android:supportsRtl="true">
+        android:label="@string/app_name">
+
+        <provider
+            android:name="org.mariusconstantin.jobsqueue.persister.PersisterContentProvider"
+            android:exported="false"
+            android:authorities="org.mariusconstantin.jobsqueue"/>
 
     </application>
 
