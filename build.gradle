@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:2.1.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -33,6 +33,7 @@ ext {
                     dagger_compiler: "com.google.dagger:dagger-compiler:${DAGGER_COMPILER_VERSION}",
                     javax          : "org.glassfish:javax.annotation:${JAVAX_VERSION}",
                     appcompat      : "com.android.support:appcompat-v7:${SUPPORT_VERSION}",
+                    appcompat_leanback      : "com.android.support:appcompat-v7:${SUPPORT_VERSION}",
                     design         : "com.android.support:design:${SUPPORT_VERSION}",
                     rxjava         : "io.reactivex:rxjava:${RX_JAVA_VERSION}",
                     rxjava_android : "io.reactivex:rxandroid:${RX_JAVA_VERSION}",
@@ -40,7 +41,8 @@ ext {
                             "junit:junit:${JUNIT_VERSION}",
                             "org.mockito:mockito-core:${MOCKITO_VERSION}",
                             "com.squareup.okhttp:mockwebserver:${MOCK_WEBSERVER_VERSION}",
-                            "org.robolectric:robolectric:${ROBOLECTRIC_VERSION}"
+                            "org.robolectric:robolectric:${ROBOLECTRIC_VERSION}",
+                            "org.assertj:assertj-core:${ASSERTJ_CORE_VERSION}"
                     ]
             ]
 

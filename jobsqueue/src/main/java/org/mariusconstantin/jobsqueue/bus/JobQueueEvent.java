@@ -14,9 +14,16 @@ public class JobQueueEvent implements IJobQueueEvent {
     @IJob.JobStatus
     private final int mStatus;
 
-    public JobQueueEvent(@NonNull IJob job,@IJob.JobStatus int status) {
+    private final Throwable mException;
+
+    public JobQueueEvent(@NonNull IJob job, @IJob.JobStatus int status) {
+        this(job, status, null);
+    }
+
+    public JobQueueEvent(@NonNull IJob job, @IJob.JobStatus int status, Throwable exception) {
         this.mJob = job;
         this.mStatus = status;
+        this.mException = exception;
     }
 
     @Override
@@ -27,5 +34,10 @@ public class JobQueueEvent implements IJobQueueEvent {
     @Override
     public int getStatus() {
         return mStatus;
+    }
+
+    @Override
+    public Throwable getException() {
+        return mException;
     }
 }

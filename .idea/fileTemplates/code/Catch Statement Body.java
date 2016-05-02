@@ -1,0 +1,1 @@
+Debug.log_e(DebugConfig.DEFAULT, TAG, "an exception occurred :  ", ${EXCEPTION});

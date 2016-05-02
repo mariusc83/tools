@@ -1,7 +1,9 @@
 package org.mariusconstantin.jobsqueue.producer;
 
 import android.support.annotation.NonNull;
+
 import org.mariusconstantin.jobsqueue.bus.JobQueueEvent;
+
 import de.greenrobot.event.EventBus;
 
 /**
@@ -19,9 +21,8 @@ public class JobsHolder implements Runnable {
         try {
             mJob.doRun();
             EventBus.getDefault().postSticky(new JobQueueEvent(mJob, IJob.STATUS_DONE));
-
         } catch (Throwable e) {
-            e.printStackTrace();
+            EventBus.getDefault().postSticky(new JobQueueEvent(mJob, IJob.STATUS_FAIL_THROUGH_EXCEPTION, e));
         }
     }
 

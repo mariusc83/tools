@@ -5,6 +5,6 @@ import org.mariusconstantin.jobsqueue.manager.JobsManager;
 /**
  * Created by Marius on 1/26/2016.
  */
-public interface IInjectComponent {
+public interface IJobsInjectComponent {
     void inject(JobsManager manager);
 }

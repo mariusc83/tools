@@ -1,7 +1,5 @@
 package org.mariusconstantin.jobsqueue.bus;
 
-import android.support.annotation.IntDef;
-
 import org.mariusconstantin.jobsqueue.producer.IJob;
 
 /**
@@ -11,5 +9,8 @@ public interface IJobQueueEvent {
 
     IJob getJob();
 
-    @IJob.JobStatus int getStatus();
+    @IJob.JobStatus
+    int getStatus();
+
+    Throwable getException();
 }

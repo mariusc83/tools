@@ -21,8 +21,11 @@ android {
         }
 
         debug{
-            buildConfigField "boolean", WITH_RX_JAVA, "true"
+            buildConfigField "boolean", WITH_RX_JAVA, "false"
         }
+    }
+    testOptions {
+        useLibrary 'org.apache.http.legacy'
     }
 }
 
